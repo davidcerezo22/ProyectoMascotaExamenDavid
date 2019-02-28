@@ -67,5 +67,26 @@ public abstract class Mascota {
 		return  yearNacimiento - hoy / 12;
 		
 	}
+    public boolean agrearRevision(LocalDate fecha, String motivo) {
+
+		Revision nueva = new Revision(fecha, motivo);
+		boolean puedeAgregarse = false;
+		puedeAgregarse = this.revisiones.add(nueva);
+
+		return puedeAgregarse;
+
+	}
+
+	public Revision[] listarRevisiones() {
+
+		int tam = revisiones.size();
+		Revision[] rev = new Revision[tam];
+		for (int i = 0; i < revisiones.size(); i++) {
+			rev[i] = revisiones.get(i);
+		}
+
+		return rev;
+
+	}
 
 }
